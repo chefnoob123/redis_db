@@ -12,6 +12,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+const size_t k_max_msg = 4096;
+
 static void msg(const char *msg) { fprintf(stderr, "%s\n", msg); }
 
 static void die(const char *msg) {
@@ -52,8 +54,6 @@ static int32_t write_all(int fd, char *buf,
   }
   return 0;
 }
-
-const size_t k_max_msg = 4096;
 
 static int32_t one_request(int connfd) {
   // 4 bytes header

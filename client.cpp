@@ -110,6 +110,17 @@ int main() {
     die("read");
   }
   printf("server says: %s\n", rbuf);
+
+  int32_t err = query(fd, "hello1");
+  if (err) {
+    goto L_DONE;
+  }
+  err = query(fd, "hello2");
+  if (err) {
+    goto L_DONE;
+  }
+
+L_DONE:
   close(fd);
   return 0;
 }
